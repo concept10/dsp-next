@@ -14,14 +14,6 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Get specific commits of git submodules
-      run: |
-           sh -ex ./submod.sh
-    - name: Apply patches
-      run: |
-           # Put git hash in startup message
-           sed -i "s/Loading.../$(date +%Y%m%d)-$(git rev-parse --short HEAD)/g" src/userinterface.cpp
     - name: Install toolchains
       run: |
            set -ex
